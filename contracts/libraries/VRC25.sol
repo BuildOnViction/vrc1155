@@ -3,13 +3,14 @@
 pragma solidity >=0.7.6;
 
 import "./Address.sol";
+import "./Context.sol";
 import "./SafeMath.sol";
 
 /**
  * @title Lite VRC25 implementation
  * @notice Lite VRC25 implementation for opt-in to gas sponsor program. This replace Ownable from OpenZeppelin as well.
  */
-abstract contract VRC25 {
+abstract contract VRC25 is Context {
     using Address for address;
     using SafeMath for uint256;
 
@@ -22,7 +23,7 @@ abstract contract VRC25 {
     event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);
 
     constructor() {
-        _owner = msg.sender;
+        _owner = _msgSender();
         emit OwnershipTransferred(address(0), msg.sender);
     }
 

@@ -18,7 +18,7 @@ import "./libraries/VRC25.sol";
  *
  * _Available since v3.1._
  */
-contract ERC1155 is VRC25, Context, ERC165, IERC1155, IERC1155MetadataURI {
+contract VRC1155 is VRC25, ERC165, IERC1155, IERC1155MetadataURI {
     using Address for address;
 
     // Mapping from token ID to account balances

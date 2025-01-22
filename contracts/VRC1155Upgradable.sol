@@ -18,7 +18,7 @@ import "./libraries/VRC25.sol";
  *
  * _Available since v3.1._
  */
-abstract contract VRC1155 is VRC25, ERC165, IERC1155, IERC1155MetadataURI {
+abstract contract VRC1155Upgradable is VRC25, ERC165, IERC1155, IERC1155MetadataURI {
     using Address for address;
 
     // Mapping from token ID to account balances
@@ -31,9 +31,10 @@ abstract contract VRC1155 is VRC25, ERC165, IERC1155, IERC1155MetadataURI {
     string private _uri;
 
     /**
+     * @notice Init VRC1155 contract, MUST BE call only 1 one time when init smart contract.
      * @dev See {_setURI}.
      */
-    constructor(string memory uri_) {
+    function __VRC1155_init(string memory uri_) internal {
         _setURI(uri_);
     }
 
